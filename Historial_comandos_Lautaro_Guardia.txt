@@ -1,0 +1,25 @@
+ssh-keygen -t ed25519
+mkdir repogit
+cd repogit/
+git clone git@github.com:lautaguardia29/TP1_AySO.git
+cd TP1_AySO/
+cat /etc/os-release
+grep -i HOME_URL /etc/os-release
+echo "Usuario=$(whoami)">datos_usuario.txt
+git add .
+git config --global user.email "Lautaroguardia29@gmail.com"
+git config --global user.name "Lautaguardia29"
+git status 
+git push
+grep "model name" /proc/cpuinfo | head -n1 >> datos_usuario.txt
+cat <<EOF>> README.md
+
+Alumno: Lautaro Ignacio Guardia
+Division: 314 
+Turno: noche
+EOF
+
+git commit -m "ADD: Añadiendo Readme y datos de usuario"
+vim
+git push
+history -a
